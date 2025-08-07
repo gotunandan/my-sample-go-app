@@ -13,6 +13,9 @@ jobs:
       - uses: docker://alpine/git:latest
         run: |
           git config --global --add safe.directory /cloudbees/workspace
+      - name: env stuff
+        uses: docker://golang:1.20
+        run: |
           uname -a ; cat /etc/os-release; free -h
       - name: checkout
         uses: https://github.com/cloudbees-io/checkout@v1
