@@ -16,10 +16,10 @@ jobs:
       - name: env stuff
         uses: docker://golang:1.20
         run: |
-          uname -a ; cat /etc/os-release; free -h
       - name: checkout
         uses: https://github.com/cloudbees-io/checkout@v1
       - name: Build Go app
+          uname -a ; cat /etc/os-release; free -h
         uses: docker://golang:1.20
         run: |
           go build -v ./...
@@ -36,3 +36,7 @@ jobs:
           registry: index.docker.io # or docker.io
           username: ${{ vars.QUICKSTART_DOCKER_USERNAME }}
           password: ${{ secrets.QUICKSTART_DOCKER_TOKEN }}
+      - name: Push image to registry
+        uses: https://github.com/cloudbees-io/kaniko@v1
+        with:
+          destination: ${{ vars.QUICKSTART_DOCKER_USERNAME }}/my-sample-go-app:1.0.0      
