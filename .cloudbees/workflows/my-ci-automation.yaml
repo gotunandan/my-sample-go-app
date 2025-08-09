@@ -16,10 +16,10 @@ jobs:
       - name: env stuff
         uses: docker://golang:1.20
         run: |
+          uname -a ; cat /etc/os-release; free -h
       - name: checkout
         uses: https://github.com/cloudbees-io/checkout@v1
       - name: Build Go app
-          uname -a ; cat /etc/os-release; free -h
         uses: docker://golang:1.20
         run: |
           go build -v ./...
