@@ -36,3 +36,7 @@ jobs:
           registry: index.docker.io # or docker.io
           username: ${{ vars.QUICKSTART_DOCKER_USERNAME }}
           password: ${{ secrets.QUICKSTART_DOCKER_TOKEN }}
+      - name: Push image to OCI registry
+        uses: https://github.com/cloudbees-io/kaniko@v1
+        with:
+            destination: index.docker.io/${{ vars.QUICKSTART_DOCKER_USERNAME }}/my-sample-go-app:1.0.0
