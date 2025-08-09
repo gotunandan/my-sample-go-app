@@ -31,8 +31,8 @@ jobs:
         uses: https://github.com/cloudbees-io/sonarqube-bundled-sast-scan-code@v1
         kind: scan
       - name: Set up Docker Hub registry
-      uses: https://github.com/cloudbees-io/configure-oci-credentials@v1
-      with:
-        registry: index.docker.io # or docker.io
-        username: ${{ vars.QUICKSTART_DOCKER_USERNAME }}
-        password: ${{ secrets.QUICKSTART_DOCKER_TOKEN }}
+        uses: https://github.com/cloudbees-io/configure-oci-credentials@v1
+        with:
+          registry: index.docker.io # or docker.io
+          username: ${{ vars.QUICKSTART_DOCKER_USERNAME }}
+          password: ${{ secrets.QUICKSTART_DOCKER_TOKEN }}
