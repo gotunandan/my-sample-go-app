@@ -4,7 +4,7 @@ name: My workflow
 on:
   push:
     branches:
-      - "**"
+      - "cloudbees-project-setup"
   workflow_dispatch:
 jobs:
   build:
